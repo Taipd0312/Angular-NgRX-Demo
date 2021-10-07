@@ -1,6 +1,7 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { Customer } from 'src/app/models/customer';
 import * as CustomerActions from '../action/customer.actions';
+import { CustomerAction } from '../action/setup/customer.action';
 
 
 export const customerFeatureKey = 'customer';
@@ -22,6 +23,6 @@ export const customerReducer = createReducer(
       customers: [...state.customers, customer]}))
 );
 
-export function reducer(state: CustomerState | undefined, action: Action): any { 
+export function reducer(state: CustomerState | undefined, action: CustomerAction): CustomerState { 
   return customerReducer(state, action);
 }
